@@ -1,0 +1,317 @@
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+#include <fstream>
+using namespace std;
+int loginSystemLibararian();
+void bookList();
+void librarianBookDetails();
+void BookDetails();
+void librarianMenu();
+void student();
+void Faculty();
+void studentDetails();
+//void addBooks();
+struct studentlist
+{
+	string name;
+	string studentId;
+	string bookName;
+	int  serialNo;
+	string issueDate;
+	string returnDate;
+
+
+
+};
+int main()
+{
+
+	int choice;
+	cout << "\n\n*********************************************************************************************************************" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t \t\t\t\t       LIBARARY MANAGEMENT SYSTEM " << "\n\n";
+	cout << "*********************************************************************************************************************" << endl;
+	cout << "\n\t\t\t\t   >>> Choose any option to login >>>" << endl;
+	cout << "\n\t\t\t\t\t   1. Librarian" << endl;
+	cout << "\n\t\t\t\t\t   2. Student " << endl;
+	cout << "\n\t\t\t\t\t   3. Faculty " << endl;
+	cout << "\n\t\t\t\t\t   4. Exit program " << "\n\n";
+	cout << "\n\t\t\t\t\t   Enter your choice: ";
+	cin >> choice;
+	cout << "\n\n";
+	switch (choice)
+	{
+	case 1:
+		loginSystemLibararian();
+		librarianMenu();
+		break;
+
+	case 2:
+		student();
+		bookList();
+		BookDetails();
+		break;
+
+	case 3:
+		Faculty();
+		bookList();
+		BookDetails();
+		break;
+	case 4:
+		exit(1);
+		break;
+
+	}
+
+
+	return 0;
+}
+int loginSystemLibararian()
+{
+	int pass, noOfTimes = 0;
+	cout << "\n\t\t\t\t   ---------- Admin Login -------" << endl;
+	cout << "\t\t\t\t\t    User name: " << "Librarian" << endl;
+	cout << "\t\t\t\t\t    Enter your password: ";
+	cin >> pass;
+	while (pass != 123 && noOfTimes <= 2)
+	{
+		cout << "\n\n";
+		cout << "\t\t\t\t\t  Incorrect Password!!" << endl;
+		cout << "\t\t\t\t\t  Enter your password again: ";
+		cin >> pass;
+
+	}
+
+	return 0;
+}
+void bookList()
+{
+	ofstream MyFile("libr.txt");
+	MyFile << "\n\n\t\t\t\t\t  BOOK LIST\n\n";
+	MyFile << "\t\t\t\t\t  1. Phsics\n\n ";
+	MyFile << "\t\t\t\t\t  2. Maths\n\n ";
+	MyFile << "\t\t\t\t\t  3. chemistry\n\n ";
+	MyFile << "\t\t\t\t\t  4. Pshycology\n\n ";
+	MyFile << "\t\t\t\t\t  5. English\n\n ";
+	MyFile.close();
+
+	string myText;
+	ifstream MyReadFile("libr.txt");
+	while (getline(MyReadFile, myText))
+	{
+		cout << myText << endl;
+	}
+	MyReadFile.close();
+
+}
+void librarianBookDetails()
+{
+	int no;
+	cout << "\n\t\t\t\t\t  Enter your book choice: ";
+	cin >> no;
+
+	switch (no)
+	{
+	case 1:
+		cout << "\t\t\t\t\t  Physics\n";
+		cout << "\t\t\t\t\t  Sr. No: 3452\n ";
+		cout << "\t\t\t\t\t  Price: Rs.400 \n";
+		cout << "\t\t\t\t\t  Author Name: Newton\n";
+		cout << "\t\t\t\t\t  Total Pages: 390\n";
+		cout << "\t\t\t\t\t  Total Quantity: 4\n";
+		break;
+	case 2:
+		cout << "\t\t\t\t\t  Maths\n";
+		cout << "\t\t\t\t\t  Sr. No: 5678\n ";
+		cout << "\t\t\t\t\t  Price: Rs.400 \n";
+		cout << "\t\t\t\t\t  Author Name: Thomas Finney\n";
+		cout << "\t\t\t\t\t  Total Pages: 200\n";
+		cout << "\t\t\t\t\t  Total Quantity: 7\n";
+		break;
+	case 3:
+		cout << "\t\t\t\t\t  chemistry\n";
+		cout << "\t\t\t\t\t  Sr. No: 5432\n ";
+		cout << "\t\t\t\t\t  Price: Rs.400 \n";
+		cout << "\t\t\t\t\t  Author Name: Bohr smith\n";
+		cout << "\t\t\t\t\t  Total Pages: 300\n";
+		cout << "\t\t\t\t\t  Total Quantity: 2\n";
+		break;
+	case 4:
+		cout << "\t\t\t\t\t  Pshycology\n";
+		cout << "\t\t\t\t\t  Sr. No: 3445\n ";
+		cout << "\t\t\t\t\t  Price: Rs.400 \n";
+		cout << "\t\t\t\t\t  Author Name: William\n";
+		cout << "\t\t\t\t\t  Total Pages: 390\n";
+		cout << "\t\t\t\t\t  Total Quantity: 3\n";
+		break;
+	case 5:
+		cout << "\t\t\t\t\t  English\n";
+		cout << "\t\t\t\t\t  Sr. No: 3789\n ";
+		cout << "\t\t\t\t\t  Price: Rs.200 \n";
+		cout << "\t\t\t\t\t  Author Name: Charles\n";
+		cout << "\t\t\t\t\t  Total Pages: 205\n";
+		cout << "\t\t\t\t\t  Total Quantity: 5\n";
+		break;
+	}
+}
+void student()
+{
+	cout << "\n\t\t\t\t   ---------- Student Login -------" << endl;
+	cout << "\t\t\t\t\t  User name: " << "Student" << endl;
+
+
+}
+void BookDetails()
+{
+	int no;
+	cout << "\n\t\t\t\t\t  Enter your book choice: ";
+	cin >> no;
+	cout << "\n\t\t\t\t\t  Book Deatils\n";
+	switch (no)
+	{
+	case 1:
+		cout << "\t\t\t\t\t  Physics\n";
+		cout << "\t\t\t\t\t  Sr. No: 3452\n ";
+		cout << "\t\t\t\t\t  Author Name: Newton \n";
+		break;
+	case 2:
+		cout << "\t\t\t\t\t  Maths\n";
+		cout << "\t\t\t\t\t  Sr. No: 5678\n ";
+		cout << "\t\t\t\t\t  Author Name: Thomas Finney\n";
+		break;
+	case 3:
+		cout << "\t\t\t\t\t  chemistry\n";
+		cout << "\t\t\t\t\t  Sr. No: 5432\n ";
+		cout << "\t\t\t\t\t  Author Name: Bohr smith\n";
+		break;
+	case 4:
+		cout << "\t\t\t\t\t  Pshycology\n";
+		cout << "\t\t\t\t\t  Sr. No: 3445\n ";
+		cout << "\t\t\t\t\t  Author Name: William\n";
+		break;
+	case 5:
+		cout << "\t\t\t\t\t  English\n";
+		cout << "\t\t\t\t\t  Sr. No: 3789\n ";
+		cout << "\t\t\t\t\t  Author Name: Charles \n";
+		break;
+	}
+}
+void librarianMenu()
+{
+	int no;
+	cout << "\n\n\t\t\t\t\t        MENU" << endl;
+	cout << "\t\t\t\t\t   1. Book List" << endl;
+	cout << "\t\t\t\t\t   2. Book Details" << endl;
+	cout << "\t\t\t\t\t   3. Issue books" << endl;
+	/*cout << "\t\t\t\t\t   4. Add books" << endl;*/
+	cout << "\t\t\t\t\t   Enter your choice: ";
+	cin >> no;
+	cout << "\n";
+	if (no == 1)
+	{
+		bookList();
+	}
+	else if (no == 2)
+	{
+		bookList();
+		librarianBookDetails();
+	}
+	else if (no == 3)
+	{
+		studentDetails();
+	}
+	/*else if (no == 4)
+	{
+		addBooks();
+	}
+*/
+}
+void studentDetails()
+{
+	studentlist studentDetails[10];
+	char choice;
+	int a = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		cin.ignore();
+		cout << "\t\t\t\t\t   Enter the student name: ";
+		getline(cin, studentDetails[i].name);
+		cout << "\t\t\t\t\t   Enter the student ID: ";
+		getline(cin, studentDetails[i].studentId);
+		cout << "\t\t\t\t\t   Enter the Book name: ";
+		getline(cin, studentDetails[i].bookName);
+		cout << "\t\t\t\t\t   Enter the Book Serial number: ";
+		cin >> studentDetails[i].serialNo;
+		cin.ignore();
+		cout << "\t\t\t\t\t   Enter the Issue Date: ";
+		getline(cin, studentDetails[i].issueDate);
+		cout << "\t\t\t\t\t   Enter the Return Date: ";
+		getline(cin, studentDetails[i].returnDate);
+		a++;
+		cout << endl;
+		cout << "\t\t\t\t\t   Enter y if u want to add more student details:";
+		cin >> choice;
+		if (choice == 'n' || choice == 'N')
+			break;
+		cout << endl;
+	}
+	cout << "\n\t\t\t\t\t   RECORD SAVED! \n";
+	for (int i = 0; i < a; i++)
+	{
+		ofstream MyFile("lib.txt");
+		MyFile << "Student Name: " << studentDetails[i].name << "\n";
+		MyFile << "Student ID: " << studentDetails[i].studentId << "\n";
+		MyFile << "Book Name: " << studentDetails[i].bookName << "\n";
+		MyFile << "Book Serial Number: " << studentDetails[i].serialNo << "\n";
+		MyFile << "Book Issue date: " << studentDetails[i].issueDate << "\n";
+		MyFile << "Book Return Date: " << studentDetails[i].returnDate << "\n";
+		MyFile.close();
+
+		string myText;
+		ifstream MyReadFile("lib.txt");
+		while (getline(MyReadFile, myText))
+		{
+			cout << "\t\t\t\t\t   " << myText << "\n"  ;
+		}
+		cout << endl;
+		// Close the file
+		MyReadFile.close();
+
+	}
+
+}
+
+void Faculty()
+{
+	cout << "\n\t\t\t\t   ---------- Faculty Login -------" << endl;
+	cout << "\t\t\t\t\t  User name: " << "Faculty" << endl;
+}
+
+//void addBooks()
+//{
+//	string book;
+//	cin.ignore();
+//	cout << "\t\t\t\t\t   Enter book name: ";
+//	getline(cin, book);
+//	ofstream MyFile("libr.txt");
+//	MyFile << "\n\n\t\t\t\t\t  BOOK LIST\n\n";
+//	MyFile << "\t\t\t\t\t  1. Phsics\n\n ";
+//	MyFile << "\t\t\t\t\t  2. Maths\n\n ";
+//	MyFile << "\t\t\t\t\t  3. chemistry\n\n ";
+//	MyFile << "\t\t\t\t\t  4. Pshycology\n\n ";
+//	MyFile << "\t\t\t\t\t  5. English\n\n ";
+//	MyFile << "\t\t\t\t\t  6. " << book;
+//	MyFile.close();
+//	cout << "\n\n\t\t\t\t\t  File updated! ";
+//
+//	cin.ignore();
+//	cout << "\n\t\t\t\t\t  EDITED RECORD";
+//	string myText;
+//	ifstream MyReadFile("libr.txt", ios::app);
+//	while (getline(MyReadFile, myText))
+//	{
+//		cout << myText << endl;
+//	}
+//	MyReadFile.close();
+//
+//}
